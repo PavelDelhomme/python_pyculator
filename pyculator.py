@@ -2,7 +2,7 @@ import tkinter as tk
 
 
 # todo make better UI
-class Calculator:
+class PyCalculator:
     def __init__(self, master):
         self.master = master
         master.title("Calculatrice")

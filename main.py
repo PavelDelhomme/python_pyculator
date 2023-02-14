@@ -1,8 +1,8 @@
 import tkinter as tk
 
-from calculator import Calculator
+from pyculator import PyCalculator
 
 if __name__ == '__main__':
     root = tk.Tk()
-    calculator = Calculator(root)
+    calculator = PyCalculator(root)
     root.mainloop()
