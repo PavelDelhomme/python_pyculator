@@ -8,11 +8,11 @@ class PyCalculator:
         master.resizable(False, False)
 
         # Couleurs
-        button_color = "#eeeeee"
-        button_active_color = "#cccccc"
+        button_color = "#aeaeae"
+        button_active_color = "#cbcbcb"
         display_color = "#ffffff"
         display_active_color = "#f0f0f0"
-        border_color = "#dddddd"
+        border_color = "#dfdfdf"
 
         # Affichage
         self.display = tk.Entry(master, width=30, font=('Arial', 16), bd=0, justify='right', bg=display_color,
@@ -101,5 +101,5 @@ class PyCalculator:
 
 if __name__ == '__main__':
     root = tk.Tk()
-    calculator = Calculator(root)
+    calculator = PyCalculator(root)
     root.mainloop()
