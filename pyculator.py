@@ -8,11 +8,11 @@ class PyCalculator:
         master.resizable(False, False)
 
         # Couleurs
-        button_color = "#aeaeae"
-        button_active_color = "#cbcbcb"
+        button_color = "#eeeeee"
+        button_active_color = "#cccccc"
         display_color = "#ffffff"
         display_active_color = "#f0f0f0"
-        border_color = "#dfdfdf"
+        border_color = "#dddddd"
 
         # Affichage
         self.display = tk.Entry(master, width=30, font=('Arial', 16), bd=0, justify='right', bg=display_color,
@@ -50,6 +50,9 @@ class PyCalculator:
             master.columnconfigure(i, weight=1)
         for i in range(6):
             master.rowconfigure(i, weight=1)
+
+        # Lier les touches du clavier aux boutons
+        master.bind("<Key>", self.keypress)
 
     def click(self, key):
         if key == '=':
@@ -97,3 +100,50 @@ class PyCalculator:
             if self.display.get() == "0":
                 self.display.delete(0)
             self.display.insert(tk.END, key)
+
+    def keypress(self, event):
+        key = event.char
+        if key == '\r':
+            key = '='
+        elif key == '\x08':
+            key = 'C'
+        elif key == '\x1b':
+            self.master.quit()
+        elif key == '+':
+            key = '+'
+        elif key == '-':
+            key = '-'
+        elif key == '*':
+            key = '*'
+        elif key == '/':
+            key = '/'
+        elif key == '.':
+            key = '.'
+        elif key == '0':
+            key = '0'
+        elif key == '1':
+            key = '1'
+        elif key == '2':
+            key = '2'
+        elif key == '3':
+            key = '3'
+        elif key == '4':
+            key = '4'
+        elif key == '5':
+            key = '5'
+        elif key == '6':
+            key = '6'
+        elif key == '7':
+            key = '7'
+        elif key == '8':
+            key = '8'
+        elif key == '9':
+            key = '9'
+        elif key == '\x16':
+            key = 'x²'
+        elif key == '\x1a':
+            key = '√'
+        else:
+            key = ''
+        if key:
+            self.click(key)
