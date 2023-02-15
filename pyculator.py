@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 
 class PyCalculator:
@@ -8,16 +9,21 @@ class PyCalculator:
         master.resizable(False, False)
 
         # Couleurs
-        button_color = "#eeeeee"
-        button_active_color = "#cccccc"
-        display_color = "#ffffff"
-        display_active_color = "#f0f0f0"
-        border_color = "#dddddd"
+        background_color = "#343434"
+        button_color = "#333333"
+        button_active_color = "#666666"
+        display_color = "#6d6d6d"
+        display_active_color = "#6e6e6e"
+        border_color = "#808080"
+        font_color = "#ffffff"
+        font_active_color = "#f2f2f2"
 
         # Affichage
-        self.display = tk.Entry(master, width=30, font=('Arial', 16), bd=0, justify='right', bg=display_color,
-                                highlightthickness=1, highlightbackground=border_color,
-                                highlightcolor=display_active_color)
+        style = ttk.Style()
+        style.configure('TEntry', background=display_color, fieldbackground=display_color, foreground=font_color,
+                        insertbackground=font_color, highlightthickness=1, highlightbackground=border_color,
+                        highlightcolor=display_active_color, relief='flat', borderwidth=0, font=('Arial', 16))
+        self.display = ttk.Entry(master, width=30, style='TEntry')
         self.display.grid(row=0, column=0, columnspan=5, padx=5, pady=5, sticky='nsew')
         self.display.insert(0, "0")
 
@@ -34,16 +40,16 @@ class PyCalculator:
         col = 0
         for button in buttons:
             command = lambda x=button: self.click(x)
-            tk.Button(master, text=button, width=5, height=2, bg=button_color, activebackground=button_active_color,
-                      relief='flat', command=command).grid(row=row, column=col, padx=5, pady=5, sticky='nsew')
+            ttk.Button(master, text=button, width=5, style='TButton', command=command).grid(row=row, column=col, padx=5,
+                                                                                            pady=5, sticky='nsew')
             col += 1
             if col > 4:
                 col = 0
                 row += 1
 
         # Ajouter un bouton pour quitter l'application
-        tk.Button(master, text="Quitter", width=8, height=2, bg=button_color, activebackground=button_active_color,
-                  relief='flat', command=master.quit).grid(row=5, column=4, padx=5, pady=5, sticky='nsew')
+        ttk.Button(master, text="Quitter", width=8, style='TButton', command=master.quit).grid(row=5, column=4, padx=5,
+                                                                                               pady=5, sticky='nsew')
 
         # Appliquer un padding uniforme aux boutons et aux cellules de la grille
         for i in range(5):
@@ -53,6 +59,14 @@ class PyCalculator:
 
         # Lier les touches du clavier aux boutons
         master.bind("<Key>", self.keypress)
+
+        # Changer le style de l'application
+        style.theme_use('clam')
+        style.configure('.', background=background_color)
+        style.configure('TButton', background=button_color, foreground=font_color, activebackground=button_active_color,
+                        activeforeground=font_active_color, borderwidth=0, font=('Arial', 12), padding=5)
+        style.map('TButton', background=[('active', button_active_color), ('pressed', button_color)])
+        style.configure('TLabel', background=background_color, foreground=font_color, font=('Arial', 12), padding=5)
 
     def click(self, key):
         if key == '=':
