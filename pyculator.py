@@ -97,9 +97,3 @@ class PyCalculator:
             if self.display.get() == "0":
                 self.display.delete(0)
             self.display.insert(tk.END, key)
-
-
-if __name__ == '__main__':
-    root = tk.Tk()
-    calculator = PyCalculator(root)
-    root.mainloop()
