@@ -8,7 +8,12 @@ Provide basics operations like :
 - `division`
 - `multiplication`
 
-  ![alt text](https://github.com/PavelDelhomme/Pyculator/blob/master/img/calculatrice_graphhique_01.png?raw=true)
+  ![alt text](https://github.com/PavelDelhomme/Pyculator/blob/master/img/calculatrice_graphique_01.png?raw=true)
+
+  ![alt text](https://github.com/PavelDelhomme/Pyculator/blob/master/img/calculatrice_graphique_02.png?raw=true)
+
+  ![alt text](https://github.com/PavelDelhomme/Pyculator/blob/master/img/calculatrice_graphique_03.png?raw=true)
+
 
 ## Comment exécuter le programme
 
