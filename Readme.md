@@ -8,6 +8,8 @@ Provide basics operations like :
 - `division`
 - `multiplication`
 
+  [](https://github.com/PavelDelhomme/Pyculator/blob/master/img/calculatrice_graphhique_01.png?raw=true)
+
 ## Comment exécuter le programme
 
 ### Prérequis
